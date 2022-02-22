@@ -3,7 +3,6 @@ const disconnectModal = require('../views/disconnect_channel_modal.js');
 const disconnectChannel = async ({ack, client, action, body}) => {
   try {
     await ack();
-    console.log('disconnectChannel action listener ');
     const disconnectBlocks = await disconnectModal.disconnectBlocks();
 
     await client.views.open({

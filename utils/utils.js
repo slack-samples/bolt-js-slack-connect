@@ -87,7 +87,6 @@ const addApproveBlocks = async (
     fileURL,
     blockText,
 ) => {
-  console.log(inviteInfo);
   let sectionWithFile;
   const inviteID= await inviteInfo.invite.id;
   const targetTeam = await inviteInfo.acceptances[0].accepting_team.id;
@@ -283,8 +282,6 @@ const addAcceptBlocks = async (
 
 const listInvites = async (client, userID) => {
   const resp = await client.conversations.listConnectInvites();
-  console.log('resp length: ');
-  console.log(resp.invites.length);
 
   const inviteBlocks = [];
   let numInvites;

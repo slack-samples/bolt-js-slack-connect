@@ -9,7 +9,6 @@ const inviteSubmittedCallback = async ({ack, view, body, client}) => {
     });
 
     const providedValues = view.state.values;
-    console.log(providedValues);
     const selectedChannel = await providedValues.channel_select_block
         .channels_select_actionID.selected_channel;
 
@@ -31,14 +30,12 @@ const inviteSubmittedCallback = async ({ack, view, body, client}) => {
     }
 
     let withEmail = true;
-    console.log(userID);
     if (!email) {
       withEmail = false;
     }
 
     let isExternalLimited = await providedValues.is_external_limited_block
         .this_is_an_action_id.selected_option.value;
-    console.log(isExternalLimited);
     if (isExternalLimited === 'Limited') {
       isExternalLimited = true;
     } else {
@@ -69,7 +66,6 @@ const inviteSubmittedCallback = async ({ack, view, body, client}) => {
           {exp_date: datePicked},
           {upsert: true},
       );
-      console.log(updateDBResp);
     }
 
     const homeBlocks = await homeView.homeBlocks(body.user.id);

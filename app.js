@@ -19,8 +19,6 @@ const app = new App({
   },
   installationStore: {
     storeInstallation: async (installation) => {
-      console.log('installation: ')
-      console.log(installation)
       if (
         installation.isEnterpriseInstall &&
         installation.enterprise !== undefined
@@ -33,8 +31,6 @@ const app = new App({
       throw new Error("Failed saving installation data to installationStore");
     },
     fetchInstallation: async (installQuery) => {
-      console.log('installQuery')
-      console.log(installQuery)
       if (
         installQuery.isEnterpriseInstall &&
         installQuery.enterpriseId !== undefined

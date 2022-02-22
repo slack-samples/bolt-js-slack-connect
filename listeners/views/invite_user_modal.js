@@ -1,5 +1,4 @@
 const inviteUserBlock = async () => {
-  // Intro message -
 
   const blocks = [
     {

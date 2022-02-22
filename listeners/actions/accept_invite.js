@@ -11,15 +11,11 @@ const acceptInvite = async ({ack, client, action, body}) => {
     const channelName = acceptInfo[1];
     const channelId = acceptInfo[2];
 
-    console.log('before accept shared invite API call');
-
     const acceptResp = await client.conversations.acceptSharedInvite({
       channel_name: channelName,
       channel_id: channelId,
       invite_id: inviteId,
     });
-
-    console.log(acceptResp);
 
     const homeblocks = await homeView.homeBlocks();
     const inviteBlocks = await utils.listInvites(client, action.value);

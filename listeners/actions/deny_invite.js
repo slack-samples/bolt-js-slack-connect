@@ -16,8 +16,7 @@ const denyInvite = async ({ack, client, action, body}) => {
     });
 
     if (!declineResp.ok) {
-      console.log('error from decline shared invite: ');
-      console.log(declineResp);
+      console.error(declineResp);
       return;
     } else {
       const homeblocks = await homeView.homeBlocks();

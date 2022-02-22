@@ -2,8 +2,6 @@ const uploadModal = require('../views/upload_file_modal.js');
 
 const uploadFile = async ({ack, client, action, body}) => {
   try {
-    console.log('upload file');
-
     const uploadBlocks = await uploadModal.uploadBlocks();
     await ack();
 

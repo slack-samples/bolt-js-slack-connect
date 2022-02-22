@@ -1,6 +1,5 @@
 const model = require('../../database/db_model');
 const disconnectChannelCallback = async ({ack, view, body, client}) => {
-  console.log('disconnect view callback');
   await ack({
     'response_action': 'clear',
   });
@@ -13,7 +12,6 @@ const disconnectChannelCallback = async ({ack, view, body, client}) => {
   let userToken;
   for (let i = 0; i < user.length; i++) {
     if (user[i].user.id == body.user.id) {
-      console.log('found a user with that has enterprise token');
       userToken = await user[i].user.token;
     }
   }
@@ -28,7 +26,6 @@ const disconnectChannelCallback = async ({ack, view, body, client}) => {
     throw new Error(error);
   }
 
-  // console.log(disconnect_resp);
   return;
 };
 module.exports = {disconnectChannelCallback};

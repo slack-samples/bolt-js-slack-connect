@@ -1,5 +1,4 @@
 const uploadBlocks = async () => {
-  // Intro message -
 
   const blocks = [
     {
