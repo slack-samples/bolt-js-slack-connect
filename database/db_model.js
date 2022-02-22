@@ -3,14 +3,6 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-const connect = async function() {
-  // Connect to MongoDB
-  mongoose.connect(
-      uri,
-      {useNewUrlParser: true, useUnifiedTopology: true},
-  );
-};
-
 const usersSchema = mongoose.Schema(
     {
       _id: String,
@@ -62,6 +54,5 @@ const Invite = mongoose.model('Invite', inviteSchema);
 
 module.exports = {
   User,
-  Invite,
-  connect,
+  Invite
 };
