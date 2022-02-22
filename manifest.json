@@ -1,0 +1,58 @@
+{
+    "display_information": {
+        "name": "Slack Connect Admin App",
+        "description": "Streamline administration of Slack Connect Channels via APIs.",
+        "background_color": "#ccff66"
+    },
+    "features": {
+        "app_home": {
+            "home_tab_enabled": true,
+            "messages_tab_enabled": true,
+            "messages_tab_read_only_enabled": false
+        },
+        "bot_user": {
+            "display_name": "Slack Connect Bot",
+            "always_online": true
+        }
+    },
+    "oauth_config": {
+        "redirect_urls": [
+            "https://3015-98-51-61-120.ngrok.io/slack/oauth_redirect"
+        ],
+        "scopes": {
+            "user": [
+                "admin.conversations:write"
+            ],
+            "bot": [
+                "channels:history",
+                "channels:manage",
+                "conversations.connect:manage",
+                "conversations.connect:read",
+                "conversations.connect:write",
+                "remote_files:write",
+                "users:read",
+                "users:read.email"
+            ]
+        }
+    },
+    "settings": {
+        "event_subscriptions": {
+            "request_url": "https://3015-98-51-61-120.ngrok.io/slack/events",
+            "bot_events": [
+                "app_home_opened",
+                "message.channels",
+                "shared_channel_invite_accepted",
+                "shared_channel_invite_approved",
+                "shared_channel_invite_declined",
+                "shared_channel_invite_received"
+            ]
+        },
+        "interactivity": {
+            "is_enabled": true,
+            "request_url": "https://3015-98-51-61-120.ngrok.io/slack/events"
+        },
+        "org_deploy_enabled": false,
+        "socket_mode_enabled": false,
+        "token_rotation_enabled": false
+    }
+}
