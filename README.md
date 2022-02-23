@@ -1,8 +1,15 @@
-# Slack Connect Admin App
+# Slack Connect Bot
 
-This project aims to speed up the time to understand & implement an app using Slack Connect APIs.
+[![Add App to Channel](https://user-images.githubusercontent.com/10428517/155386817-4152eef1-4608-40f0-a3f0-0fbf2b020671.gif)](https://user-images.githubusercontent.com/10428517/155386817-4152eef1-4608-40f0-a3f0-0fbf2b020671.gif)
 
-It is meant to be a blueprint app which others can take and build their own automations into.
+This project aims to speed up the time to understand & implement automations with [Slack Connect APIs](https://api.slack.com/apis/connect). This project aims to be the baseline
+on which a few different automations can be built:
+
+* Disconnect channels automatically (based on a date picked at channel creation time)
+* Upload remote files into the app, keeping all information related to the 
+approval of a channel in one place
+* Customize org settings for auto approval to speed up creating multiple 
+channels between the same two organizations 
 
 # Steps
 0. [Installation](#step-0-Installation)
