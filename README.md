@@ -14,8 +14,7 @@ approval of a channel in one place
 channels between the same two organizations 
 
 # Steps
-0. [Installation](#step-0-Installation)
-1. [Configure Interactivity, Events, and Redirect URLs](#step-1-configure-interactivity-events-and-redirect-URLs)
+1. [App Configuration](#step-1-app-configuration)
 2. [Install the App](#step-2-install-the-app)
 3. [Add the App to a Channel](#step-3-add-the-app-to-a-channel)
 4. [Send a Slack Connect Invite](#step-4-send-a-slack-connect-invite)
@@ -24,7 +23,7 @@ channels between the same two organizations
 7. [Disconnect the Channel](#step-7-disconnect-the-channel) 
 8. [Conclusion](#conclusion) 
 
-## Step 0. Installation
+## Step 1. App Configuration
 
 #### Create a Slack App
 
@@ -41,8 +40,7 @@ specific places, as shown in the screenshot below.
 green check marks. Select `Remove Hard Coded Information`, check the box
 and then `Activate Public Distribution`.
 
-![activeDistribution](
-https://user-images.githubusercontent.com/10428517/155411289-45f63a4f-72dc-40b1-a45e-9fae8d2df673.png)
+![activeDistribution](https://user-images.githubusercontent.com/10428517/155407272-44a2eaf9-e735-453f-a9c7-18c21004a037.png)
 
 
 #### Environment Variables
@@ -69,23 +67,6 @@ and the collection is named `users`.
 #### Run Bolt Server
 
 `npm start`
-
-## Step 1. Configure Interactivity, Events, and Redirect URLs
-
-Follow the steps below based on if you plan to use Ngrok or Glitch as a way to host your app. Either will work.
-
-If you are using [Ngrok](www.ngrok.com), make sure you have started up ngrok, and have updated your app with the ngrok forwarding address in the following places:
-1. Update your event subscriptions request URL. It should look like the following: `https://3cb89939.ngrok.io/slack/events`. Save this.
-2. Update your interactivity request URL. It should look like the following: `https://3cb89939.ngrok.io/slack/events`. Save this.
-3. Go to OAuth & Permissions -> Redirect URLs. Add a new redirect URL. It should look like the following: `https://3cb89939.ngrok.io/slack/oauth_redirect`. Save the URL.
-
-If you are using [Glitch](www.glitch.com), follow these instructions. To find your hosted URL in Glitch, open your project in the Glitch web IDE,
-and then click on `Share`. From there you find the `Live site` link. Mine looks like the following: `https://bolt-template-slack-connect.glitch.me`
-
-Once you've found the URL to your live site, update your app's configuration in the following places:
-1. Update your event subscriptions request URL. It should look like the following: `https://bolt-template-slack-connect.glitch.me/slack/events`. Save this.
-2. Update your interactivity request URL. It should look like the following: `https://bolt-template-slack-connect.glitch.me/slack/events/slack/events`. Save this.
-3. Go to OAuth & Permissions -> Redirect URLs. Add a new redirect URL. It should look like the following: `https://bolt-template-slack-connect.glitch.me/slack/oauth_redirect`. Save the URL.
 
 Great job! You're now ready to install the app using Slack's OAuth process. 
 
