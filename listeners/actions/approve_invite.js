@@ -1,5 +1,5 @@
 const homeView = require('../views/home_view.js');
-const utils = require('../../utils/utils.js');
+const listInvites = require('./../../utils/list_invites')
 
 const approveInvite = async ({ack, client, action, body}) => {
   try {
@@ -18,7 +18,7 @@ const approveInvite = async ({ack, client, action, body}) => {
     });
 
     const homeblocks = await homeView.homeBlocks();
-    const inviteBlocks = await utils.listInvites(client, action.value);
+    const inviteBlocks = await listInvites(client, action.value);
     const newBlocks = await homeblocks.concat(inviteBlocks);
 
     const result = await client.views.publish({

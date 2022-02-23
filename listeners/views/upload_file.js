@@ -1,5 +1,5 @@
 const homeView = require('./home_view.js');
-const utils = require('../../utils/utils.js');
+const addFile = require('../../utils/add_file.js');
 
 const uploadFileCallback = async ({ack, view, body, client}) => {
   try {
@@ -19,7 +19,7 @@ const uploadFileCallback = async ({ack, view, body, client}) => {
 
     const homeblocks = await homeView.homeBlocks();
 
-    const inviteBlocks = await utils.addFile(inviteID, fileURL, client, userID);
+    const inviteBlocks = await addFile(inviteID, fileURL, client, userID);
 
     // concat the old blocks (i.e. home blocks) with the invite blocks
     const newBlocks = await homeblocks.concat(inviteBlocks);
