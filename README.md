@@ -40,7 +40,7 @@ specific places, as shown in the screenshot below.
 green check marks. Select `Remove Hard Coded Information`, check the box
 and then `Activate Public Distribution`.
 
-![activeDistribution](https://user-images.githubusercontent.com/10428517/155407272-44a2eaf9-e735-453f-a9c7-18c21004a037.png)
+![activeDistribution](https://user-images.githubusercontent.com/10428517/155411289-45f63a4f-72dc-40b1-a45e-9fae8d2df673.png)
 
 
 #### Environment Variables
