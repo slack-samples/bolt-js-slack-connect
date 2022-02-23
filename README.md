@@ -1,6 +1,8 @@
 # Slack Connect Bot
+<p align="center">
 
-[![Add App to Channel](https://user-images.githubusercontent.com/10428517/155386817-4152eef1-4608-40f0-a3f0-0fbf2b020671.gif)](https://user-images.githubusercontent.com/10428517/155386817-4152eef1-4608-40f0-a3f0-0fbf2b020671.gif)
+[![Add App to Channel](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)
+</p>
 
 This project aims to speed up the time to understand & implement automations with [Slack Connect APIs](https://api.slack.com/apis/connect). This project aims to be the baseline
 on which a few different automations can be built:
