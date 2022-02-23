@@ -1,4 +1,4 @@
-# Slack Connect Bot
+# 🤖 Slack Connect Bot 🤖
 <p align="center">
 
 [![Add App to Channel](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)
@@ -13,7 +13,7 @@ approval of a channel in one place
 * Customize org settings for auto approval to speed up creating multiple 
 channels between the same two organizations 
 
-# Steps
+# Steps 
 1. [App Configuration](#step-1-app-configuration)
 2. [Install the App](#step-2-install-the-app)
 3. [Add the App to a Channel](#step-3-add-the-app-to-a-channel)
@@ -153,7 +153,8 @@ click on `Disconnect`.
 Within a few seconds, you should see that channel move from the `Connections` section of the sidebar, to the `Channels` section. This means 
 that this channel has now been disconnected from the organization it was previously connected to.
 
-## Conclusion
+## 🎊 Conclusion 🎊 
+
 Great job! You've learned how the Slack Connect APIs work! You've learned how to send an invite, accept and invite, approve an invite, and 
 also disconnect a shared channel!
 
@@ -161,5 +162,3 @@ Another thing you may want to try is to edit settings for your organization's Sl
 channels between a certain organization you may do that. This will speed up the creation of Slack Connect channels. 
 
 Thanks so much for learning with me. Please file any issues in this GitHub repo! 
-
-
