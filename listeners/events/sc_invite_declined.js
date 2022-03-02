@@ -1,4 +1,4 @@
-const sharedChannelInviteDeclined = async ({client, event, body}) => {
+const sharedChannelInviteDeclined = async ({ event, ack }) => {
   try {
     await ack();
     console.log(event);
@@ -7,4 +7,4 @@ const sharedChannelInviteDeclined = async ({client, event, body}) => {
   }
 };
 
-module.exports = {sharedChannelInviteDeclined};
+module.exports = { sharedChannelInviteDeclined };

@@ -1,6 +1,6 @@
-const homeView = require('../views/home_view.js');
+const homeView = require('../views/home_view');
 
-const appHomeOpenedCallback = async ({client, event, body}) => {
+const appHomeOpenedCallback = async ({ client, event }) => {
   if (event.tab !== 'home') return;
 
   const homeBlocks = await homeView.homeBlocks(event.user);
@@ -8,9 +8,9 @@ const appHomeOpenedCallback = async ({client, event, body}) => {
     await client.views.publish({
       user_id: event.user,
       view: {
-        'type': 'home',
-        'blocks': homeBlocks,
-        'external_id': 'homeView',
+        type: 'home',
+        blocks: homeBlocks,
+        external_id: 'homeView',
       },
     });
   } catch (error) {
@@ -18,4 +18,4 @@ const appHomeOpenedCallback = async ({client, event, body}) => {
   }
 };
 
-module.exports = {appHomeOpenedCallback};
+module.exports = { appHomeOpenedCallback };

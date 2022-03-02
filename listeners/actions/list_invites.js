@@ -1,6 +1,7 @@
-const homeView = require('../views/home_view.js');
-const listInvites = require('./../../utils/list_invites')
-const listInvitesAction = async ({ack, client, action, body}) => {
+const homeView = require('../views/home_view');
+const listInvites = require('../../utils/list_invites');
+
+const listInvitesAction = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
@@ -8,7 +9,7 @@ const listInvitesAction = async ({ack, client, action, body}) => {
     const inviteBlocks = await listInvites(client, action.value);
     const newBlocks = await homeblocks.concat(inviteBlocks);
 
-    const result = await client.views.publish({
+    await client.views.publish({
       user_id: body.user.id,
       view: {
         type: 'home',
@@ -17,10 +18,10 @@ const listInvitesAction = async ({ack, client, action, body}) => {
       },
     });
 
-    return result;
+    return;
   } catch (error) {
     console.error(error);
   }
 };
 
-module.exports = {listInvitesAction};
+module.exports = { listInvitesAction };

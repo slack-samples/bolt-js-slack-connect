@@ -1,7 +1,7 @@
-const homeView = require('../views/home_view.js');
-const listInvites = require('./../../utils/list_invites')
+const homeView = require('../views/home_view');
+const listInvites = require('../../utils/list_invites');
 
-const approveInvite = async ({ack, client, action, body}) => {
+const approveInvite = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
@@ -34,6 +34,7 @@ const approveInvite = async ({ack, client, action, body}) => {
   } catch (error) {
     console.error(error);
   }
+  return 0;
 };
 
-module.exports = {approveInvite};
+module.exports = { approveInvite };

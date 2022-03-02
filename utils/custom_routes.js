@@ -1,4 +1,4 @@
-const html = require('./../templates');
+const html = require('../templates');
 
 const customRoutes = [
   {
@@ -19,4 +19,4 @@ const customRoutes = [
   },
 ];
 
-module.exports = {customRoutes};
+module.exports = { customRoutes };

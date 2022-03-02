@@ -1,6 +1,6 @@
-const disconnectModal = require('../views/disconnect_channel_modal.js');
+const disconnectModal = require('../views/disconnect_channel_modal');
 
-const disconnectChannel = async ({ack, client, action, body}) => {
+const disconnectChannel = async ({ ack, client, body }) => {
   try {
     await ack();
     const disconnectBlocks = await disconnectModal.disconnectBlocks();
@@ -8,17 +8,17 @@ const disconnectChannel = async ({ack, client, action, body}) => {
     await client.views.open({
       trigger_id: body.trigger_id,
       view: {
-        'type': 'modal',
-        'notify_on_close': true,
-        'callback_id': 'disconnect',
-        'title': {
-          'type': 'plain_text',
-          'text': 'Disconnect a Channel',
+        type: 'modal',
+        notify_on_close: true,
+        callback_id: 'disconnect',
+        title: {
+          type: 'plain_text',
+          text: 'Disconnect a Channel',
         },
-        'blocks': disconnectBlocks,
-        'submit': {
-          'type': 'plain_text',
-          'text': 'Disconnect',
+        blocks: disconnectBlocks,
+        submit: {
+          type: 'plain_text',
+          text: 'Disconnect',
         },
       },
     });
@@ -27,4 +27,4 @@ const disconnectChannel = async ({ack, client, action, body}) => {
   }
 };
 
-module.exports = {disconnectChannel};
+module.exports = { disconnectChannel };

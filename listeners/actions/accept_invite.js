@@ -1,7 +1,7 @@
-const homeView = require('../views/home_view.js');
-const listInvites = require('./../../utils/list_invites')
+const homeView = require('../views/home_view');
+const listInvites = require('../../utils/list_invites');
 
-const acceptInvite = async ({ack, client, action, body}) => {
+const acceptInvite = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
@@ -11,7 +11,7 @@ const acceptInvite = async ({ack, client, action, body}) => {
     const channelName = acceptInfo[1];
     const channelId = acceptInfo[2];
 
-    const acceptResp = await client.conversations.acceptSharedInvite({
+    await client.conversations.acceptSharedInvite({
       channel_name: channelName,
       channel_id: channelId,
       invite_id: inviteId,
@@ -29,11 +29,11 @@ const acceptInvite = async ({ack, client, action, body}) => {
         private_metadata: body.user.id,
       },
     });
-
     return result;
   } catch (error) {
     console.error(error);
   }
+  return 0;
 };
 
-module.exports = {acceptInvite};
+module.exports = { acceptInvite };

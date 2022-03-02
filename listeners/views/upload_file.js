@@ -1,7 +1,7 @@
-const homeView = require('./home_view.js');
-const addFile = require('../../utils/add_file.js');
+const homeView = require('./home_view');
+const addFile = require('../../utils/add_file');
 
-const uploadFileCallback = async ({ack, view, body, client}) => {
+const uploadFileCallback = async ({ ack, view, body, client }) => {
   try {
     await ack();
 
@@ -12,15 +12,15 @@ const uploadFileCallback = async ({ack, view, body, client}) => {
 
     // call remote files upload API
     await client.files.remote.add({
-      'external_id': 'test123',
-      'title': 'testTitle',
-      'external_url': fileURL,
+      external_id: 'test123',
+      title: 'testTitle',
+      external_url: fileURL,
     });
 
     const homeblocks = await homeView.homeBlocks();
 
     const inviteBlocks = await addFile(inviteID, fileURL, client, userID);
-
+    console.log(inviteBlocks);
     // concat the old blocks (i.e. home blocks) with the invite blocks
     const newBlocks = await homeblocks.concat(inviteBlocks);
 
@@ -36,6 +36,7 @@ const uploadFileCallback = async ({ack, view, body, client}) => {
   } catch (error) {
     console.error(error);
   }
+  return 0;
 };
 
-module.exports = {uploadFileCallback};
+module.exports = { uploadFileCallback };

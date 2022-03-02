@@ -1,4 +1,4 @@
-const sharedChannelInviteReceived = async ({client, event, body}) => {
+const sharedChannelInviteReceived = async ({ event }) => {
   try {
     console.log(event);
   } catch (error) {
@@ -6,4 +6,4 @@ const sharedChannelInviteReceived = async ({client, event, body}) => {
   }
 };
 
-module.exports = {sharedChannelInviteReceived};
+module.exports = { sharedChannelInviteReceived };

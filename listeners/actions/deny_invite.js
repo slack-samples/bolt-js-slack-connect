@@ -1,7 +1,7 @@
-const homeView = require('../views/home_view.js');
-const listInvites = require('./../../utils/list_invites')
+const homeView = require('../views/home_view');
+const listInvites = require('../../utils/list_invites');
 
-const denyInvite = async ({ack, client, action, body}) => {
+const denyInvite = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
@@ -18,24 +18,23 @@ const denyInvite = async ({ack, client, action, body}) => {
     if (!declineResp.ok) {
       console.error(declineResp);
       return;
-    } else {
-      const homeblocks = await homeView.homeBlocks();
-      const inviteBlocks = await listInvites(client, action.value);
-      const newBlocks = await homeblocks.concat(inviteBlocks);
-
-      const result = await client.views.publish({
-        user_id: body.user.id,
-        view: {
-          type: 'home',
-          blocks: newBlocks,
-          private_metadata: body.user.id,
-        },
-      });
-      return result;
     }
+    const homeblocks = await homeView.homeBlocks();
+    const inviteBlocks = await listInvites(client, action.value);
+    const newBlocks = await homeblocks.concat(inviteBlocks);
+
+    await client.views.publish({
+      user_id: body.user.id,
+      view: {
+        type: 'home',
+        blocks: newBlocks,
+        private_metadata: body.user.id,
+      },
+    });
+    return;
   } catch (error) {
     console.error(error);
   }
 };
 
-module.exports = {denyInvite};
+module.exports = { denyInvite };

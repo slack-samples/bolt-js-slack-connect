@@ -1,9 +1,9 @@
-/* eslint-disable max-len*/
+/* eslint-disable max-len */
 require('dotenv').config();
 const manifest = require('../manifest.json');
+
 const oauthRedirect = manifest.oauth_config.redirect_urls[0];
-const css =
-  `
+const css = `
     html {
       margin: 0;
       padding: 0;
@@ -18,8 +18,7 @@ const css =
     }
   `;
 
-const workspaceInstall =
-  `
+const workspaceInstall = `
     <!DOCTYPE html>
     <html lang='en'>
     <head>

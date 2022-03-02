@@ -4,7 +4,8 @@
   "description": "This project aims to speed up the time to understand & implement an app using Slack Connect APIs.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "lint": "eslint --ext .js ."
   },
   "author": "Slack Technologies, LLC",
   "license": "MIT",
@@ -23,11 +24,13 @@
   "dependencies": {
     "@slack/bolt": "^3.8.1",
     "dotenv": "^10.0.0",
+    "eslint-config-airbnb": "^19.0.4",
     "mongoose": "^6.2.0",
     "ngrok": "^4.3.0"
   },
   "devDependencies": {
     "eslint": "^8.9.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4"
   }
 }

@@ -1,18 +1,19 @@
 const model = require('../../database/db_model');
-const disconnectChannelCallback = async ({ack, view, body, client}) => {
+
+const disconnectChannelCallback = async ({ ack, view, body, client }) => {
   await ack({
-    'response_action': 'clear',
+    response_action: 'clear',
   });
   const providedValues = view.state.values;
   const channel = providedValues.channel_select_block.channels_select_actionID
-      .selected_channel;
+    .selected_channel;
 
-  const user = await model.User.find({isEnterpriseInstall: true});
+  const user = await model.User.find({ isEnterpriseInstall: true });
 
   let userToken;
-  for (let i = 0; i < user.length; i++) {
-    if (user[i].user.id == body.user.id) {
-      userToken = await user[i].user.token;
+  for (let i = 0; i < user.length; i += 1) {
+    if (user[i].user.id === body.user.id) {
+      userToken = user[i].user.token;
     }
   }
 
@@ -25,7 +26,5 @@ const disconnectChannelCallback = async ({ack, view, body, client}) => {
   } catch (error) {
     throw new Error(error);
   }
-
-  return;
 };
-module.exports = {disconnectChannelCallback};
+module.exports = { disconnectChannelCallback };

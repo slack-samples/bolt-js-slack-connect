@@ -1,8 +1,8 @@
-const {appHomeOpenedCallback} = require('./app_home_opened');
-const {sharedChannelInviteAccepted} = require('./sc_invite_accepted');
-const {sharedChannelInviteApproved} = require('./sc_invite_approved');
-const {sharedChannelInviteDeclined} = require('./sc_invite_declined');
-const {sharedChannelInviteReceived} = require('./sc_invite_received');
+const { appHomeOpenedCallback } = require('./app_home_opened');
+const { sharedChannelInviteAccepted } = require('./sc_invite_accepted');
+const { sharedChannelInviteApproved } = require('./sc_invite_approved');
+const { sharedChannelInviteDeclined } = require('./sc_invite_declined');
+const { sharedChannelInviteReceived } = require('./sc_invite_received');
 
 module.exports.register = (app) => {
   app.event('app_home_opened', appHomeOpenedCallback);

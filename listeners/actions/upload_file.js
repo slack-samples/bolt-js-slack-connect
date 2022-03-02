@@ -1,6 +1,6 @@
-const uploadModal = require('../views/upload_file_modal.js');
+const uploadModal = require('../views/upload_file_modal');
 
-const uploadFile = async ({ack, client, action, body}) => {
+const uploadFile = async ({ ack, client, action, body }) => {
   try {
     const uploadBlocks = await uploadModal.uploadBlocks();
     await ack();
@@ -8,25 +8,25 @@ const uploadFile = async ({ack, client, action, body}) => {
     await client.views.open({
       trigger_id: body.trigger_id,
       view: {
-        'type': 'modal',
-        'notify_on_close': true,
-        'callback_id': 'uploadFileCallback',
-        'title': {
-          'type': 'plain_text',
-          'text': 'Upload a File',
+        type: 'modal',
+        notify_on_close: true,
+        callback_id: 'uploadFileCallback',
+        title: {
+          type: 'plain_text',
+          text: 'Upload a File',
         },
-        'blocks': uploadBlocks,
-        'submit': {
-          'type': 'plain_text',
-          'text': 'Upload',
+        blocks: uploadBlocks,
+        submit: {
+          type: 'plain_text',
+          text: 'Upload',
         },
-        'private_metadata': action.value,
+        private_metadata: action.value,
       },
     });
-    return
+    return;
   } catch (error) {
     console.error(error);
   }
 };
 
-module.exports = {uploadFile};
+module.exports = { uploadFile };

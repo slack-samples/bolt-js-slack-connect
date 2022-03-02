@@ -1,9 +1,10 @@
-const homeView = require('../views/home_view.js');
-const listInvites = require('../../utils/list_invites.js');
+const homeView = require('../views/home_view');
+const listInvites = require('../../utils/list_invites');
 
 const sharedChannelInviteAccepted = async (
-    {context, client, event, body},
+  { client, event, body },
 ) => {
+  console.log('event: ', event);
   const userID = body.event.accepting_user.id;
   const homeblocks = await homeView.homeBlocks();
   const inviteBlocks = await listInvites(client, userID);
@@ -21,4 +22,4 @@ const sharedChannelInviteAccepted = async (
   return result;
 };
 
-module.exports = {sharedChannelInviteAccepted};
+module.exports = { sharedChannelInviteAccepted };
