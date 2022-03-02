@@ -1,6 +1,5 @@
-const sharedChannelInviteDeclined = async ({ event, ack }) => {
+const sharedChannelInviteDeclined = async ({ event }) => {
   try {
-    await ack();
     console.log(event);
   } catch (error) {
     console.error(error);

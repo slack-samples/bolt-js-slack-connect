@@ -1,6 +1,5 @@
-const sharedChannelInviteApproved = async ({ ack, event }) => {
+const sharedChannelInviteApproved = async ({ event }) => {
   try {
-    await ack();
     console.log(event);
   } catch (error) {
     console.error(error);

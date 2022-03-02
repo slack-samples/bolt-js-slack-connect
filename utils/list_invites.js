@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+
 const addApproveBlocks = require('./add_approve_blocks');
 const addAcceptBlocks = require('./add_accept_blocks');
 
@@ -25,7 +27,7 @@ const listInvites = async (client) => {
 
     if (currentInvite.acceptances !== undefined) {
       if (currentInvite.acceptances[0].approval_status === 'approved') continue;
-      addApproveBlocks(
+      await addApproveBlocks(
         inviteBlocks,
         resp.invites[i],
         currentInvite,
@@ -33,7 +35,7 @@ const listInvites = async (client) => {
         '',
       );
     } else {
-      addAcceptBlocks(
+      await addAcceptBlocks(
         inviteBlocks,
         resp.invites[i],
         currentInvite,
