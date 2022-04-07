@@ -1,6 +1,6 @@
 const model = require('./db_model');
 
-const findUser = async function (id) {
+const findUser = async (id) => {
   try {
     const user = await model.User.find({ _id: id });
     // return first user we find

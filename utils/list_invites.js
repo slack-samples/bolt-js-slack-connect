@@ -19,21 +19,16 @@ const listInvites = async (client) => {
   for (let i = 0; i < numInvites; i += 1) {
     const currentInvite = resp.invites[i];
 
-    if (
-      currentInvite.status === 'revoked' || currentInvite.status === 'approved'
-    ) {
-      continue;
-    }
-
-    if (currentInvite.acceptances !== undefined) {
-      if (currentInvite.acceptances[0].approval_status === 'approved') continue;
-      await addApproveBlocks(
-        inviteBlocks,
-        resp.invites[i],
-        currentInvite,
-        '',
-        '',
-      );
+    if (currentInvite.acceptances !== undefined && currentInvite.status !== 'revoked' && currentInvite.status !== 'approved') {
+      if (currentInvite.acceptances[0].approval_status !== 'approved') {
+        await addApproveBlocks(
+          inviteBlocks,
+          resp.invites[i],
+          currentInvite,
+          '',
+          '',
+        );
+      }
     } else {
       await addAcceptBlocks(
         inviteBlocks,

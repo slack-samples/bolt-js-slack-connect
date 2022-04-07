@@ -13,8 +13,6 @@
     "rules": {
         "object-curly-newline": "off",
         "camelcase": "off",
-        "no-console": "off",
-        "func-names": "off",
-        "no-continue": "off"
+        "no-console": "off"
     }
 }

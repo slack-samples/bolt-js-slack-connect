@@ -6,8 +6,6 @@ const db = require('./database/db');
 const dbQuery = require('./database/find_user');
 const customRoutes = require('./utils/custom_routes');
 
-db.connect();
-
 const app = new App({
   logLevel: LogLevel.DEBUG,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -54,6 +52,8 @@ registerListeners(app);
   try {
     await app.start(process.env.PORT || 3000);
     console.log('⚡️ Bolt app is running! ⚡️');
+    db.connect();
+    console.log('DB is connected.');
   } catch (error) {
     console.error('Unable to start App', error);
   }

@@ -38,25 +38,19 @@ const addFile = async (inviteID, fileURL, client, userID) => {
           + 'Status: Not yet approved';
     }
 
-    if (
-      currentInvite.status === 'revoked' || currentInvite.status === 'approved'
-    ) {
-      continue;
-    }
-
-    if (currentInvite.acceptances !== undefined) {
-      if (currentInvite.acceptances[0].approval_status === 'approved') continue;
-
-      const awayTeamId = currentInvite.acceptances[0].accepting_team.id;
-      const inviteInfo = `${currentInvite.invite.id},${awayTeamId},${userID}`;
-      inviteBlocks.push(divider);
-      addApproveBlocks(
-        inviteBlocks,
-        inviteInfo,
-        currentInvite,
-        fileURL,
-        blockText,
-      );
+    if (currentInvite.acceptances !== undefined && currentInvite.status !== 'revoked' && currentInvite.status !== 'approved') {
+      if (currentInvite.acceptances[0].approval_status !== 'approved') {
+        const awayTeamId = currentInvite.acceptances[0].accepting_team.id;
+        const inviteInfo = `${currentInvite.invite.id},${awayTeamId},${userID}`;
+        inviteBlocks.push(divider);
+        addApproveBlocks(
+          inviteBlocks,
+          inviteInfo,
+          currentInvite,
+          fileURL,
+          blockText,
+        );
+      }
     } else {
       const channelID = resp.invites[i].channel.id;
       const invID = resp.invites[i].invite.id;
