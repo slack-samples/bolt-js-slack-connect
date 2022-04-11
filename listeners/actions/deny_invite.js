@@ -5,18 +5,16 @@ const denyInvite = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
-    const text = action.value;
-    const inviteInfo = text.split(',');
-    const awayTeam = inviteInfo[1];
-    const inviteId = inviteInfo[0];
+    // action.value is used to pass in info such as inviteID and awayTeam
+    const [inviteId, awayTeam] = action.value.split(',');
 
+    // API call to decline invite
     const declineResp = await client.conversations.declineSharedInvite({
       invite_id: inviteId,
       target_team: awayTeam,
     });
 
     if (!declineResp.ok) {
-      console.error(declineResp);
       return;
     }
     const homeblocks = await homeView.homeBlocks();

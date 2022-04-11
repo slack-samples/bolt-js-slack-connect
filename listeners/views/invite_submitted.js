@@ -12,22 +12,12 @@ const inviteSubmittedCallback = async ({ ack, view, body, client }) => {
     const selectedChannel = await providedValues.channel_select_block
       .channels_select_actionID.selected_channel;
 
-    let email; let userID; let datePicked;
-    if (providedValues.userID_input_block.userID_actionID.value != null) {
-      userID = await providedValues.userID_input_block.userID_actionID.value;
-    }
-
-    if (providedValues.email_input_block.email_input_actionID.value != null) {
-      email = await providedValues.email_input_block.email_input_actionID.value;
-    }
-
-    if (
-      providedValues.datepicker_input_block.datepicker_actionID.selected_date
-        != null
-    ) {
-      datePicked = await providedValues.datepicker_input_block
-        .datepicker_actionID.selected_date;
-    }
+    // Set variables based on what user has picked.
+    // User can use either email or userID.
+    const userID = providedValues.userID_input_block.userID_actionID.value;
+    const email = providedValues.email_input_block.email_input_actionID.value;
+    // Datepicked is optional
+    const datePicked = providedValues.datepicker_input_block.datepicker_actionID.selected_date;
 
     let withEmail = true;
     if (!email) {

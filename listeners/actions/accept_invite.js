@@ -5,11 +5,7 @@ const acceptInvite = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
-    const text = action.value;
-    const acceptInfo = text.split(',');
-    const inviteId = acceptInfo[0];
-    const channelName = acceptInfo[1];
-    const channelId = acceptInfo[2];
+    const [inviteId, channelName, channelId] = action.value.split(',');
 
     await client.conversations.acceptSharedInvite({
       channel_name: channelName,
@@ -32,8 +28,8 @@ const acceptInvite = async ({ ack, client, action, body }) => {
     return result;
   } catch (error) {
     console.error(error);
+    return error;
   }
-  return 0;
 };
 
 module.exports = { acceptInvite };

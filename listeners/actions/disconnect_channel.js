@@ -10,7 +10,7 @@ const disconnectChannel = async ({ ack, client, body }) => {
       view: {
         type: 'modal',
         notify_on_close: true,
-        callback_id: 'disconnect',
+        callback_id: 'disconnect_channel_callback',
         title: {
           type: 'plain_text',
           text: 'Disconnect a Channel',

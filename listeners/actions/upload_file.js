@@ -10,7 +10,7 @@ const uploadFile = async ({ ack, client, action, body }) => {
       view: {
         type: 'modal',
         notify_on_close: true,
-        callback_id: 'uploadFileCallback',
+        callback_id: 'upload_file_callback',
         title: {
           type: 'plain_text',
           text: 'Upload a File',

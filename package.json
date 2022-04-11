@@ -1,7 +1,7 @@
 {
-  "name": "slack-connect-admin-sample",
+  "name": "bolt-js-slack-connect",
   "version": "1.0.0",
-  "description": "This project aims to speed up the time to understand & implement an app using Slack Connect APIs.",
+  "description": "This project aims to speed up the time to understand & implement automations using Slack Connect APIs.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

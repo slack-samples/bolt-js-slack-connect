@@ -2,15 +2,15 @@ const inviteModal = require('../views/invite_user_modal');
 
 const submitSharedChannelInvite = async ({ ack, client, body }) => {
   try {
-    const inviteUserBlocks = await inviteModal.inviteUserBlock();
     await ack();
+    const inviteUserBlocks = await inviteModal.inviteUserBlock();
 
     await client.views.open({
       trigger_id: body.trigger_id,
       view: {
         type: 'modal',
         notify_on_close: true,
-        callback_id: 'inviteSubmitted',
+        callback_id: 'invite_submitted_callback',
         title: {
           type: 'plain_text',
           text: 'Slack Connect Invite',

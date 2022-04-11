@@ -8,12 +8,13 @@ const disconnectChannelCallback = async ({ ack, view, body, client }) => {
   const channel = providedValues.channel_select_block.channels_select_actionID
     .selected_channel;
 
-  const user = await model.User.find({ isEnterpriseInstall: true });
+  const users = await model.User.find({ isEnterpriseInstall: true });
 
   let userToken;
-  for (let i = 0; i < user.length; i += 1) {
-    if (user[i].user.id === body.user.id) {
-      userToken = user[i].user.token;
+  for (let i = 0; i < users.length; i += 1) {
+    if (users[i].user.id === body.user.id) {
+      userToken = users[i].user.token;
+      break;
     }
   }
 

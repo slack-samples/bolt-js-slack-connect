@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 const mongoose = require('mongoose');
 
 require('dotenv').config();

@@ -11,13 +11,13 @@
             "messages_tab_read_only_enabled": false
         },
         "bot_user": {
-            "display_name": "Slack Connect Bot",
+            "display_name": "Slack Connect Bot Apr7",
             "always_online": true
         }
     },
     "oauth_config": {
         "redirect_urls": [
-            "https://3015-98-51-61-120.ngrok.io/slack/oauth_redirect"
+            "https://a862-2601-646-4380-66e0-6c30-b5b0-e53e-8a9c.ngrok.io/slack/oauth_redirect"
         ],
         "scopes": {
             "user": [
@@ -37,7 +37,7 @@
     },
     "settings": {
         "event_subscriptions": {
-            "request_url": "https://3015-98-51-61-120.ngrok.io/slack/events",
+            "request_url": "https://a862-2601-646-4380-66e0-6c30-b5b0-e53e-8a9c.ngrok.io/slack/events",
             "bot_events": [
                 "app_home_opened",
                 "message.channels",
@@ -49,7 +49,7 @@
         },
         "interactivity": {
             "is_enabled": true,
-            "request_url": "https://3015-98-51-61-120.ngrok.io/slack/events"
+            "request_url": "https://a862-2601-646-4380-66e0-6c30-b5b0-e53e-8a9c.ngrok.io/slack/events"
         },
         "org_deploy_enabled": false,
         "socket_mode_enabled": false,

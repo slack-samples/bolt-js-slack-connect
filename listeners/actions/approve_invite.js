@@ -5,11 +5,8 @@ const approveInvite = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
-    // action.value is used to pass in info such as inviteID, userID, and teamID
-    const text = action.value;
-    const inviteInfo = text.split(',');
-    const inviteId = inviteInfo[0];
-    const awayTeam = inviteInfo[1];
+    // action.value is used to pass in info such as inviteID and awayTeam
+    const [inviteId, awayTeam] = action.value.split(',');
 
     // API call to approve the invite
     await client.conversations.approveSharedInvite({
@@ -33,8 +30,8 @@ const approveInvite = async ({ ack, client, action, body }) => {
     return result;
   } catch (error) {
     console.error(error);
+    return error;
   }
-  return 0;
 };
 
 module.exports = { approveInvite };

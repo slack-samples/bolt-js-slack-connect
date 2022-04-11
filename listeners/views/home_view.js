@@ -1,5 +1,5 @@
-let homeBlocks = async (userID) => {
-  homeBlocks = [
+const homeBlocks = async (userID) => {
+  const blocks = [
     {
       type: 'section',
       text: {
@@ -80,7 +80,7 @@ let homeBlocks = async (userID) => {
       ],
     },
   ];
-  return homeBlocks;
+  return blocks;
 };
 
 module.exports = { homeBlocks };

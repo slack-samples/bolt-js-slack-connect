@@ -1,4 +1,4 @@
-# 🤖 Slack Connect Bot 🤖
+# 🤖 Bolt JS Slack Connect App 🤖
 <p align="center">
 
 [![Add App to Channel](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)
@@ -25,6 +25,9 @@ channels between the same two organizations
 
 ## Step 1. App Configuration
 
+Before getting started, make sure you have a development workspace where you have permissions to install apps. If you don’t have one setup, go ahead and [create one](https://slack.com/create).
+## Installation
+
 #### Create a Slack App
 
 1. Open [https://api.slack.com/apps/new](https://api.slack.com/apps/new) and choose "From an app manifest"
@@ -41,7 +44,6 @@ green check marks. Select `Remove Hard Coded Information`, check the box
 and then `Activate Public Distribution`.
 
 ![activeDistribution](https://user-images.githubusercontent.com/10428517/155411289-45f63a4f-72dc-40b1-a45e-9fae8d2df673.png)
-
 
 #### Environment Variables
 
@@ -68,7 +70,27 @@ and the collection is named `users`.
 
 `npm start`
 
+## Project Structure
+
+### `manifest.json`
+
+`manifest.json` is a configuration for Slack apps. With a manifest, you can create an app with a pre-defined configuration, or adjust the configuration of an existing app.
+
+### `app.js`
+
+`app.js` is the entry point for the application and is the file you'll run to start the server. This project aims to keep this file as thin as possible, primarily using it as a way to route inbound requests.
+
+### `/listeners`
+
+Every incoming request is routed to a "listener". Inside this directory, we group each listener based on the Slack Platform feature used, so `/listeners/shortcuts` handles incoming [Shortcuts](https://api.slack.com/interactivity/shortcuts) requests, `/listeners/views` handles [View submissions](https://api.slack.com/reference/interaction-payloads/views#view_submission) and so on.
+
 Great job! You're now ready to install the app using Slack's OAuth process. 
+
+## App Distribution / OAuth
+
+This app uses app distribution / OAuth by default. When using OAuth, Slack requires a public URL where it can send requests. In this template app, we've used [`ngrok`](https://ngrok.com/download). Checkout [this guide](https://ngrok.com/docs#getting-started-expose) for setting it up.
+
+Start `ngrok` to access the app on an external network and create a redirect URL for OAuth. 
 
 ## Step 2. Install the App
 

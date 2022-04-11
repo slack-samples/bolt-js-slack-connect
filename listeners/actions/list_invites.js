@@ -5,9 +5,9 @@ const listInvitesAction = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
-    const homeblocks = await homeView.homeBlocks();
+    const homeBlocks = await homeView.homeBlocks();
     const inviteBlocks = await listInvites(client, action.value);
-    const newBlocks = await homeblocks.concat(inviteBlocks);
+    const newBlocks = homeBlocks.concat(inviteBlocks);
 
     await client.views.publish({
       user_id: body.user.id,
