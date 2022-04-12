@@ -6,12 +6,6 @@ const addAcceptBlocks = async (
   blockText,
 ) => {
   let sectionWithFile;
-  const channelID = inviteInfo.channel.id;
-  const inviteID = inviteInfo.invite.id;
-  const channelNameFromInvInfo = inviteInfo.channel.name;
-
-  const acceptArgs = `${inviteID},${channelNameFromInvInfo},${channelID
-  },`;
 
   if (fileURL.length > 0 && blockText.length > 0) {
     sectionWithFile = {
@@ -46,40 +40,11 @@ const addAcceptBlocks = async (
           type: 'button',
           text: {
             type: 'plain_text',
-            text: 'Accept',
+            text: 'Accept Invite',
             emoji: true,
           },
-          value: acceptArgs,
-          action_id: 'accept_action',
           style: 'primary',
-        },
-        {
-          type: 'button',
-          text: {
-            type: 'plain_text',
-            text: 'Ignore',
-            emoji: true,
-          },
-          value: currentInvite.invite.id,
-          action_id: 'deny_action',
-          confirm: {
-            title: {
-              type: 'plain_text',
-              text: 'Are you sure?',
-            },
-            text: {
-              type: 'mrkdwn',
-              text: 'Do you want to ignore this Slack Connect invitation?',
-            },
-            confirm: {
-              type: 'plain_text',
-              text: 'Yes',
-            },
-            deny: {
-              type: 'plain_text',
-              text: 'No',
-            },
-          },
+          url: currentInvite.invite.link,
         },
         {
           type: 'button',

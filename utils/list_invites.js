@@ -20,7 +20,8 @@ const listInvites = async (client) => {
     const currentInvite = resp.invites[i];
 
     if (currentInvite.acceptances !== undefined && currentInvite.status !== 'revoked' && currentInvite.status !== 'approved') {
-      if (currentInvite.acceptances[0].approval_status !== 'approved') {
+      // do not display any invites which are approved, or rejected
+      if (currentInvite.acceptances[0].approval_status !== 'approved' && currentInvite.acceptances[0].approval_status !== 'rejected') {
         addApproveBlocks(
           inviteBlocks,
           resp.invites[i],
