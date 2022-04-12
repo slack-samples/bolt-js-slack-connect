@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+
 const addApproveBlocks = require('./add_approve_blocks');
 const addAcceptBlocks = require('./add_accept_blocks');
 
@@ -37,7 +39,9 @@ const listInvites = async (client) => {
       );
     }
   }
-
+  // need this to make sure all accept/approve blocks have finished being appended to inviteBlocks.
+  // Without this the UI doesn't update properly.
+  await inviteBlocks;
   return inviteBlocks;
 };
 

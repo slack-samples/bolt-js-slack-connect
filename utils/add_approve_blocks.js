@@ -36,7 +36,6 @@ const addApproveBlocks = async (
   }
   inviteBlocks.push({ type: 'divider' });
   inviteBlocks.push(sectionWithFile);
-
   inviteBlocks.push(
     {
       type: 'actions',
