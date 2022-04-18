@@ -4,6 +4,8 @@ const addApproveBlocks = require('./add_approve_blocks');
 const addAcceptBlocks = require('./add_accept_blocks');
 
 const listInvites = async (client) => {
+  // note that in a real app - you'll want to implement pagination if you want to see all invites
+  // Read more about pagination with the cursor field here: https://api.slack.com/methods/conversations.listConnectInvites
   const resp = await client.conversations.listConnectInvites();
 
   const inviteBlocks = [];

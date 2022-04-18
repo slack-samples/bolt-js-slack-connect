@@ -23,6 +23,9 @@ channels between the same two organizations
 7. [Disconnect the Channel](#step-7-disconnect-the-channel) 
 8. [Conclusion](#conclusion) 
 
+> **Note:🚨** Because this app can approve Slack Connect invites, apps with this feature can only be installed by a worksapce owner or admin. Read more about the `conversations.connect:manage` scope [here](https://slack.com/create). 🚨 
+
+
 ## Step 1. App Configuration
 
 Before getting started, make sure you have a development workspace where you have permissions to install apps. If you don’t have one setup, go ahead and [create one](https://slack.com/create).
@@ -94,6 +97,8 @@ Start `ngrok` to access the app on an external network and create a redirect URL
 
 ## Step 2. Install the App
 
+> **Note:🚨** Because this app can approve Slack Connect invites, apps with this feature can only be installed by a worksapce owner or admin. Read more about the `conversations.connect:manage` scope [here](https://slack.com/create). 🚨 
+
 Watch the video below **(sound on)** to understand how to install the app. Note that the video is showing the install path from a Ngrok URL. 
 The base URL will always we different, based on if you are using Ngrok or Glitch, and depending on what your app is named on Glitch / what forwarding address is used in Ngrok.
 
@@ -119,6 +124,9 @@ create a new channel, then we add the app to that channel.
 
 ## Step 4. Send a Slack Connect Invite using the App
 
+> **Note:🚨** A tip about sending invites using the `user_id` field. If your app is already installed on the target organization, you can invite it directly and therefore automate both inviting and accepting invitations in order to connect two or more organizations. Simply grab the `user_id` field
+of the app which is installed on the target organizations and instead of inviting by email, use the `user_id` field🙌🏼. This is recommended for orgs that you have a close working relationship with. Read more [here](https://api.slack.com/apis/connect#invite). 🚨 
+
 Watch the video below **(sound on)** to understand how to send an invite to a user outside of your current organization.
 
 [![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/155223009-e03aa7c6-ba0c-46e6-9803-db90906e0138.mov)
@@ -135,6 +143,8 @@ newly created inviation.
 
 ## Step 5. Accept the Slack Connect Invite
 Watch the video below **(sound on)** to understand how to accept the invite.
+
+> **Note:🚨** The invite must be accepted from a user from a different workspace / organization than the workspace / org from which the invite was sent. 🚨 
 
 [![acceptInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/155225771-184cca6d-f715-45ca-9ba6-452c3a86216b.mov)
 
