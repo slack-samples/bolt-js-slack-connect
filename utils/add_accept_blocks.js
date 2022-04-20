@@ -40,16 +40,6 @@ const addAcceptBlocks = async (
           type: 'button',
           text: {
             type: 'plain_text',
-            text: 'Accept Invite',
-            emoji: true,
-          },
-          style: 'primary',
-          url: currentInvite.invite.link,
-        },
-        {
-          type: 'button',
-          text: {
-            type: 'plain_text',
             text: 'Upload file',
             emoji: true,
           },
@@ -59,7 +49,6 @@ const addAcceptBlocks = async (
       ],
     },
   );
-
   return inviteBlocks;
 };
 

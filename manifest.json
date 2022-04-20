@@ -17,7 +17,7 @@
     },
     "oauth_config": {
         "redirect_urls": [
-            "https://a862-2601-646-4380-66e0-6c30-b5b0-e53e-8a9c.ngrok.io/slack/oauth_redirect"
+            "https://f249-2601-646-4380-66e0-a891-173a-5c4-4432.ngrok.io/slack/oauth_redirect"
         ],
         "scopes": {
             "user": [
@@ -37,7 +37,7 @@
     },
     "settings": {
         "event_subscriptions": {
-            "request_url": "https://a862-2601-646-4380-66e0-6c30-b5b0-e53e-8a9c.ngrok.io/slack/events",
+            "request_url": "https://f249-2601-646-4380-66e0-a891-173a-5c4-4432.ngrok.io/slack/events",
             "bot_events": [
                 "app_home_opened",
                 "message.channels",
@@ -49,7 +49,7 @@
         },
         "interactivity": {
             "is_enabled": true,
-            "request_url": "https://a862-2601-646-4380-66e0-6c30-b5b0-e53e-8a9c.ngrok.io/slack/events"
+            "request_url": "https://f249-2601-646-4380-66e0-a891-173a-5c4-4432.ngrok.io/slack/events"
         },
         "org_deploy_enabled": false,
         "socket_mode_enabled": false,
