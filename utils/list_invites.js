@@ -28,8 +28,6 @@ const listInvites = async (client) => {
           inviteBlocks,
           resp.invites[i],
           currentInvite,
-          '',
-          '',
         );
       }
     } else {
@@ -37,8 +35,6 @@ const listInvites = async (client) => {
         inviteBlocks,
         resp.invites[i],
         currentInvite,
-        '',
-        '',
       );
     }
   }

@@ -4,6 +4,8 @@
 [![Add App to Channel](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)
 </p>
 
+> **Note:🚨** Because this app can approve Slack Connect invites, apps with this feature can only be installed by a worksapce owner or admin. Read more about the `conversations.connect:manage` scope [here](https://slack.com/create). 🚨 
+
 This project aims to speed up the time to understand & implement automations with [Slack Connect APIs](https://api.slack.com/apis/connect). This project aims to be the baseline
 on which a few different automations can be built:
 
@@ -22,9 +24,6 @@ channels between the same two organizations
 6. [Approve the Slack Connect Invite](#step-6-approve-the-slack-connect-invite)
 7. [Disconnect the Channel](#step-7-disconnect-the-channel) 
 8. [Conclusion](#conclusion) 
-
-> **Note:🚨** Because this app can approve Slack Connect invites, apps with this feature can only be installed by a worksapce owner or admin. Read more about the `conversations.connect:manage` scope [here](https://slack.com/create). 🚨 
-
 
 ## Step 1. App Configuration
 
