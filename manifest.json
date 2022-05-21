@@ -1,6 +1,6 @@
 {
     "display_information": {
-        "name": "Slack Connect Admin App",
+        "name": "Bolt JS Slack Connect",
         "description": "Streamline administration of Slack Connect Channels via APIs.",
         "background_color": "#ccff66"
     },
@@ -11,7 +11,7 @@
             "messages_tab_read_only_enabled": false
         },
         "bot_user": {
-            "display_name": "Slack Connect Bot Apr7",
+            "display_name": "Bolt JS Slack Connect",
             "always_online": true
         }
     },
