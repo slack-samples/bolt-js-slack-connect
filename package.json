@@ -1,5 +1,5 @@
 {
-  "name": "bolt-js-slack-connect",
+  "name": "bolt-js-slack-connect-admin",
   "version": "1.0.0",
   "description": "This project aims to speed up the time to understand & implement automations using Slack Connect APIs.",
   "main": "app.js",

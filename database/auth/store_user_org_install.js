@@ -2,6 +2,7 @@ const model = require('../db_model');
 
 const saveUserOrgInstall = async (installation) => {
   try {
+    // Use MongoDB framework Mongoose to update our Database with Enterprise Grid Org credentials
     const resp = await model.User.updateOne(
       { _id: installation.enterprise.id },
       {

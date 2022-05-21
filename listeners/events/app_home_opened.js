@@ -1,5 +1,5 @@
 const homeView = require('../views/home_view');
-
+// Slack Event which fires in the event of the App Home being opened.
 const appHomeOpenedCallback = async ({ client, event }) => {
   if (event.tab !== 'home') return;
 

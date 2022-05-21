@@ -2,6 +2,7 @@ const model = require('../../database/db_model');
 
 const homeView = require('./home_view');
 
+// Invite a user to a Slack Connect Channel
 const inviteSubmittedCallback = async ({ ack, view, body, client }) => {
   try {
     await ack({

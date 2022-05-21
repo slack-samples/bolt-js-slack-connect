@@ -1,3 +1,4 @@
+// Register our view callbacks
 const { homeViewCallback } = require('./home_view');
 const { inviteSubmittedCallback } = require('./invite_submitted');
 const { disconnectChannelCallback } = require('./disconnect_channel');

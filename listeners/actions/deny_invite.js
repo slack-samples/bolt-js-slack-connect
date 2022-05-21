@@ -5,7 +5,7 @@ const denyInvite = async ({ ack, client, action, body }) => {
   try {
     await ack();
 
-    // action.value is used to pass in info such as inviteID and awayTeam
+    // Action.value is used to pass in info such as inviteID and awayTeam.
     const [inviteId, awayTeam] = action.value.split(',');
 
     // API call to decline invite
@@ -21,6 +21,7 @@ const denyInvite = async ({ ack, client, action, body }) => {
     const inviteBlocks = await listInvites(client, action.value);
     const newBlocks = await homeblocks.concat(inviteBlocks);
 
+    // Update UI to take out the newly declined invite.
     await client.views.publish({
       user_id: body.user.id,
       view: {

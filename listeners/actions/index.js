@@ -1,3 +1,4 @@
+// Register all files which have Slack Actions in them
 const { listInvitesAction } = require('./list_invites');
 const { submitSharedChannelInvite } = require('./submit_channel_invite');
 const { disconnectChannel } = require('./disconnect_channel');

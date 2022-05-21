@@ -1,8 +1,9 @@
 const addAcceptBlocks = async (
   inviteBlocks,
-  inviteInfo,
   currentInvite,
 ) => {
+  // Build Block Kit section block when showing pending invitations (waiting to be accepted).
+  // To learn more about Block Kit Section Blocks => https://api.slack.com/reference/block-kit/blocks#section
   const sectionWithInviteInfo = {
     type: 'section',
     text: {

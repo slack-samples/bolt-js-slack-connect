@@ -1,4 +1,4 @@
-# 🤖 Bolt JS Slack Connect App 🤖
+# 🤖 Bolt JS Slack Connect Admin 🤖
 <p align="center">
 
 [![Add App to Channel](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)
@@ -10,10 +10,10 @@ This project aims to speed up the time to understand & implement automations wit
 on which a few different automations can be built:
 
 * Disconnect channels automatically (based on a date picked at channel creation time)
-* Upload remote files into the app, keeping all information related to the 
-approval of a channel in one place
 * Customize org settings for auto approval to speed up creating multiple 
 channels between the same two organizations 
+* Upload remote files into the app, keeping all information related to the 
+approval of a channel in one place (not shown)
 
 # Steps 
 1. [App Configuration](#step-1-app-configuration)

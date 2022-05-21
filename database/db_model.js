@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
+// Use MongoDB framework Mongoose to create our database schema for users.
 const usersSchema = mongoose.Schema(
   {
     _id: String,
@@ -24,6 +25,7 @@ const usersSchema = mongoose.Schema(
   { _id: false },
 );
 
+// Use MongoDB framework Mongoose to create our database schema for storing Slack Connect Invites.
 const inviteSchema = mongoose.Schema(
   {
     _id: String,

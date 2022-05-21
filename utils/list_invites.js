@@ -4,14 +4,14 @@ const addApproveBlocks = require('./add_approve_blocks');
 const addAcceptBlocks = require('./add_accept_blocks');
 
 const listInvites = async (client) => {
-  // note that in a real app - you'll want to implement pagination if you want to see all invites
+  // Note that in a real app - you'll want to implement pagination if you want to see all invites
   // Read more about pagination with the cursor field here: https://api.slack.com/methods/conversations.listConnectInvites
   const resp = await client.conversations.listConnectInvites();
 
   const inviteBlocks = [];
   let numInvites;
 
-  // Slack API cannot have over 100 blocks in one view
+  // Slack API cannot have over 100 blocks in one view.
   if (resp.invites.length > 100) {
     numInvites = 100;
   } else {
@@ -22,8 +22,9 @@ const listInvites = async (client) => {
     const currentInvite = resp.invites[i];
 
     if (currentInvite.acceptances !== undefined && currentInvite.status !== 'revoked' && currentInvite.status !== 'approved') {
-      // do not display any invites which are approved, or rejected
+      // Do not display any invites which are approved, or rejected.
       if (currentInvite.acceptances[0].approval_status !== 'approved' && currentInvite.acceptances[0].approval_status !== 'rejected') {
+        console.log('add approve blocks');
         addApproveBlocks(
           inviteBlocks,
           resp.invites[i],
@@ -33,12 +34,11 @@ const listInvites = async (client) => {
     } else {
       addAcceptBlocks(
         inviteBlocks,
-        resp.invites[i],
         currentInvite,
       );
     }
   }
-  // need this to make sure all accept/approve blocks have finished being appended to inviteBlocks.
+  // Need this to make sure all accept/approve blocks have finished being appended to inviteBlocks.
   // Without this the UI doesn't update properly.
   await inviteBlocks;
   return inviteBlocks;

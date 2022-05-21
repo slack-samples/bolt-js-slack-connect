@@ -1,3 +1,4 @@
+// Register all of our events by the event callback and file name
 const { appHomeOpenedCallback } = require('./app_home_opened');
 const { sharedChannelInviteAccepted } = require('./sc_invite_accepted');
 const { sharedChannelInviteApproved } = require('./sc_invite_approved');

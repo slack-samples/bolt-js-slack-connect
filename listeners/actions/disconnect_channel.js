@@ -3,6 +3,7 @@ const disconnectModal = require('../views/disconnect_channel_modal');
 const disconnectChannel = async ({ ack, client, body }) => {
   try {
     await ack();
+    // UI Logic to disconnect a channel.
     const disconnectBlocks = await disconnectModal.disconnectBlocks();
 
     await client.views.open({

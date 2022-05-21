@@ -2,6 +2,7 @@
 require('dotenv').config();
 const manifest = require('../manifest.json');
 
+// grab the redirect URL, and embed it as a button click action in the HTML.
 const oauthRedirect = manifest.oauth_config.redirect_urls[0];
 const css = `
     html {

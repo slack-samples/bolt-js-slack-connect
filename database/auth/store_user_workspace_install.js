@@ -2,13 +2,14 @@ const model = require('../db_model');
 
 const saveUserWorkspaceInstall = async (installation) => {
   try {
+    // Use MongoDB framework Mongoose to update our Database with workspace credentials.
     const resp = await model.User.updateOne(
       { _id: installation.team.id },
       {
         team: { id: installation.team.id, name: installation.team.name },
-        // entperise id is null on workspace install
+        // Entperise ID is null on workspace install.
         enterprise: { id: 'null', name: 'null' },
-        // user scopes + token is null on workspace install
+        // User scopes and user token is null on workspace install.
         user: { token: 'null', scopes: 'null', id: installation.user.id },
         tokenType: installation.tokenType,
         isEnterpriseInstall: installation.isEnterpriseInstall,

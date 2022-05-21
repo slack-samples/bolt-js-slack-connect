@@ -8,6 +8,8 @@ const addApproveBlocks = async (
 
   const approveArgs = `${inviteID},${targetTeam},`;
 
+  // Build Block Kit section block when showing accepted invitations (waiting to be approved).
+  // To learn more about Block Kit Section Blocks => https://api.slack.com/reference/block-kit/blocks#section
   const sectionWithInviteInfo = {
     type: 'section',
     text: {
@@ -21,8 +23,9 @@ const addApproveBlocks = async (
         + '*Status*: Not yet accepted',
     },
   };
-
   inviteBlocks.push(sectionWithInviteInfo);
+
+  // Block Kit action block with button elements: https://api.slack.com/reference/block-kit/blocks#actions
   inviteBlocks.push(
     {
       type: 'actions',
@@ -34,8 +37,11 @@ const addApproveBlocks = async (
             text: 'Approve',
             emoji: true,
           },
+          // what to send in the payload: https://api.slack.com/reference/block-kit/block-elements#button__fields
           value: approveArgs,
+          // callback function to call when button is clicked: https://api.slack.com/reference/block-kit/block-elements#button__fields
           action_id: 'approve_action',
+          // Red button color: https://api.slack.com/reference/block-kit/block-elements#button__fields
           style: 'primary',
         },
         {
@@ -46,8 +52,11 @@ const addApproveBlocks = async (
             emoji: true,
           },
           value: approveArgs,
+          // callback function to call when button is clicked: https://api.slack.com/reference/block-kit/block-elements#button__fields
           action_id: 'deny_action',
+          // Red button color: https://api.slack.com/reference/block-kit/block-elements#button__fields
           style: 'danger',
+          // follow up modal aka confirm object: https://api.slack.com/reference/block-kit/composition-objects#confirm
           confirm: {
             title: {
               type: 'plain_text',
@@ -70,7 +79,7 @@ const addApproveBlocks = async (
       ],
     },
   );
-
+  inviteBlocks.push({ type: 'divider' });
   return inviteBlocks;
 };
 

@@ -1,3 +1,4 @@
+// Define Block Kit blocks for the disconnect channel flow
 const disconnectBlocks = async () => {
   const blocks = [
     {
@@ -13,7 +14,8 @@ const disconnectBlocks = async () => {
       },
       label: {
         type: 'plain_text',
-        text: 'Which channel do you want to disconnect from?',
+        text: '🚨 Only Enterprise Grid Admins can use this feature. \n  \n '
+        + 'Which channel do you want to disconnect from?',
       },
     },
   ];

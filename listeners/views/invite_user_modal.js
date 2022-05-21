@@ -1,3 +1,5 @@
+// Build UI blocks (Block Kit Blocks) to display the form which asks for email and user to invite
+//  https://api.slack.com/reference/block-kit/blocks#input
 const inviteUserBlock = async () => {
   const blocks = [
     {

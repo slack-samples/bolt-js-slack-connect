@@ -1,3 +1,4 @@
+// UI blocks which are always displayed on the App Home page.
 const homeBlocks = async (userID) => {
   const blocks = [
     {

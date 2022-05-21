@@ -5,8 +5,8 @@ const dbQuery = require('../../database/find_user');
 const sharedChannelInviteApproved = async ({ client, event }) => {
   try {
     console.log(event);
-    const teamID = await event.invite.inviting_user.team_id;
-    const userID = await event.invite.inviting_user.id;
+    const teamID = event.invite.inviting_user.team_id;
+    const userID = event.invite.inviting_user.id;
     const homeblocks = await homeView.homeBlocks();
     const inviteBlocks = await listInvites(client, userID);
     const newBlocks = await homeblocks.concat(inviteBlocks);

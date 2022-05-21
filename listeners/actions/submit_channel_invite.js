@@ -5,6 +5,8 @@ const submitSharedChannelInvite = async ({ ack, client, body }) => {
     await ack();
     const inviteUserBlocks = await inviteModal.inviteUserBlock();
 
+    // Open a model (form) to invite a user to a Slack Connect channel.
+    // This is where you enter a User ID or email to invite.
     await client.views.open({
       trigger_id: body.trigger_id,
       view: {
