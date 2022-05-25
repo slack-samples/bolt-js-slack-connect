@@ -138,7 +138,7 @@ In the email section, choose the email which coressponds to the workspace which 
 Leave the rest of the sections blank and click on `Invite`. Lastly, click on `View Invitations` and you should see your 
 newly created inviation.
 
-## Step 4.1 (Optional) Send a Slack Connect Invite using User ID
+## Step 5. (Optional) Send a Slack Connect Invite using User ID
 [![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/170152797-c8a784b9-22f7-45ea-8140-1c1c54df30d4.mov)
 
 > **Note:🚨** A tip about sending invites using the `user_id` field. If your app is already installed on both the inviting <b>and</b> the target organization, you can invite the app via User ID directly. This will
@@ -158,7 +158,7 @@ home (make sure it is the app which is installed on the target Organization), an
 
 Leave the rest of the sections blank and click on Invite. Lastly, click on View Invitations and you should see your newly created inviation.
 
-## Step 4.2 (Optional) Create Custom Slack Connect Settings to Never Require Approval
+## Step 6. (Optional) Create Custom Slack Connect Settings to Never Require Approval
 
 [![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/170152824-80389b26-54da-48c4-9547-bb7215369bc1.mov)
 
@@ -168,7 +168,7 @@ Grid Organization, you can have it so that any accepted invite will be
 auto-approved from a specific organization. This is the way to make Slack
 Connect channels seamlessly be approved between trusted Organizations.
 
-## Step 5. Accept the Slack Connect Invite
+## Step 7. Accept the Slack Connect Invite
 Watch the video below **(sound on)** to understand how to accept the invite.
 
 > **Note:🚨** The invite must be accepted from a user from a different workspace / organization than the workspace / org from which the invite was sent. 🚨 
@@ -181,14 +181,14 @@ Click through the following two pages. You can leave the defaults as is (Public 
 click on `Join Channel`. Now, if you click on `View Invitations again` you should see that the buttons have changed. Instead of seeing `Accept` and `Ignore`you will
 now see `Approve` and `Deny`. 
 
-## Step 6. Approve the Slack Connect Invite
+## Step 8. Approve the Slack Connect Invite
 Watch the video below **(sound on)** to understand how to approve the invite.
 
 [![approveInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/155228571-f4a10314-f5bb-4af2-803e-3bcfd41145a9.mov)
 
 Click on the green `Approve` button next to the invite. After a few seconds, you should see that invite dissapear and then the `demo_sc_app` channel will be added under the `Connections` tab, which means it's been shared outside of your own organization! 
 
-## Step 7. Disconnect the Channel
+## Step 9. Disconnect the Channel
 
 Watch the video below **(sound on)** to understand how to disconnect your shared channel. This will involve installing the app again, but this 
 time at the org level. 🚨You need to be **logged in as an org owner / admin** to be able to use this feature.🚨
