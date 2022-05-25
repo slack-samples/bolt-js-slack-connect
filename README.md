@@ -20,7 +20,7 @@ approval of a channel in one place (not shown)
 2. [Install the App](#step-2-install-the-app)
 3. [Add the App to a Channel](#step-3-add-the-app-to-a-channel)
 4. [Send a Slack Connect Invite](#step-4-send-a-slack-connect-invite)
-4. [(Optional)](#step-41-optional-send-a-slack-connect-invite-using-user-id)
+4. [(Optional) Send a Slack Connect Invite using User ID](#step-41-optional-send-a-slack-connect-invite-using-user-id)
 4. [(Optional) Create Custom Slack Connect Settings to Never Require Approval](#step-42-optional-create-custom-slack-connect-settings-to-never-require-approval)
 5. [Accept the Slack Connect Invite](#step-5-accept-the-slack-connect-invite)
 6. [Approve the Slack Connect Invite](#step-6-approve-the-slack-connect-invite)
@@ -123,7 +123,7 @@ create a new channel, then we add the app to that channel.
 
 [![Add App to Channel](https://user-images.githubusercontent.com/10428517/155204764-789193f2-8cce-46aa-8268-508cf38195b9.png)](https://user-images.githubusercontent.com/10428517/155204315-2fa1b888-d479-494d-ae80-ebe59da02868.mov)
 
-## Step 4. Send a Slack Connect Invite using the App
+## Step 4. Send a Slack Connect Invite
 
 Watch the video below **(sound on)** to understand how to send an invite to a user outside of your current organization.
 
