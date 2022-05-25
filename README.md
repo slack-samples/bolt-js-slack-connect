@@ -20,12 +20,12 @@ approval of a channel in one place (not shown)
 2. [Install the App](#step-2-install-the-app)
 3. [Add the App to a Channel](#step-3-add-the-app-to-a-channel)
 4. [Send a Slack Connect Invite](#step-4-send-a-slack-connect-invite)
-4. [(Optional) Send a Slack Connect Invite using User ID](#step-41-optional-send-a-slack-connect-invite-using-user-id)
-4. [(Optional) Create Custom Slack Connect Settings to Never Require Approval](#step-42-optional-create-custom-slack-connect-settings-to-never-require-approval)
-5. [Accept the Slack Connect Invite](#step-5-accept-the-slack-connect-invite)
-6. [Approve the Slack Connect Invite](#step-6-approve-the-slack-connect-invite)
-7. [Disconnect the Channel](#step-7-disconnect-the-channel) 
-8. [Conclusion](#conclusion) 
+5. [(Optional) Send a Slack Connect Invite using User ID](#step-5-optional-send-a-slack-connect-invite-using-user-id)
+6. [(Optional) Create Custom Slack Connect Settings to Never Require Approval](#step-6-optional-create-custom-slack-connect-settings-to-never-require-approval)
+7. [Accept the Slack Connect Invite](#step-7-accept-the-slack-connect-invite)
+8. [Approve the Slack Connect Invite](#step-8-approve-the-slack-connect-invite)
+9. [Disconnect the Channel](#step-9-disconnect-the-channel) 
+10. [Conclusion](#conclusion) 
 
 ## Step 1. App Configuration
 
