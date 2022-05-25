@@ -20,8 +20,8 @@ approval of a channel in one place (not shown)
 2. [Install the App](#step-2-install-the-app)
 3. [Add the App to a Channel](#step-3-add-the-app-to-a-channel)
 4. [Send a Slack Connect Invite](#step-4-send-a-slack-connect-invite)
-4. [(Optional)](#step-4.1-send-a-slack-connect-invite)
-4. [(Optional) Create Custom Slack Connect Settings to Never Require Approval](#step-4.2-send-a-slack-connect-invite)
+4. [(Optional)](#step-41-optional-send-a-slack-connect-invite-using-user-id)
+4. [(Optional) Create Custom Slack Connect Settings to Never Require Approval](#step-42-optional-create-custom-slack-connect-settings-to-never-require-approval)
 5. [Accept the Slack Connect Invite](#step-5-accept-the-slack-connect-invite)
 6. [Approve the Slack Connect Invite](#step-6-approve-the-slack-connect-invite)
 7. [Disconnect the Channel](#step-7-disconnect-the-channel) 
@@ -138,7 +138,7 @@ In the email section, choose the email which coressponds to the workspace which 
 Leave the rest of the sections blank and click on `Invite`. Lastly, click on `View Invitations` and you should see your 
 newly created inviation.
 
-## Step 4.1 (Optional) Send a Slack Connect Invite using the App
+## Step 4.1 (Optional) Send a Slack Connect Invite using User ID
 [![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/170152797-c8a784b9-22f7-45ea-8140-1c1c54df30d4.mov)
 
 > **Note:🚨** A tip about sending invites using the `user_id` field. If your app is already installed on both the inviting <b>and</b> the target organization, you can invite the app via User ID directly. This will
