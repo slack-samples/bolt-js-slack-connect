@@ -123,9 +123,6 @@ create a new channel, then we add the app to that channel.
 
 ## Step 4. Send a Slack Connect Invite using the App
 
-> **Note:🚨** A tip about sending invites using the `user_id` field. If your app is already installed on the target organization, you can invite it directly and therefore automate both inviting and accepting invitations in order to connect two or more organizations. Simply grab the `user_id` field
-of the app which is installed on the target organizations and instead of inviting by email, use the `user_id` field🙌🏼. This is recommended for orgs that you have a close working relationship with. Read more [here](https://api.slack.com/apis/connect#invite). 🚨 
-
 Watch the video below **(sound on)** to understand how to send an invite to a user outside of your current organization.
 
 [![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/155223009-e03aa7c6-ba0c-46e6-9803-db90906e0138.mov)
@@ -139,6 +136,33 @@ In the email section, choose the email which coressponds to the workspace which 
 Leave the rest of the sections blank and click on `Invite`. Lastly, click on `View Invitations` and you should see your 
 newly created inviation.
 
+### Optional Step: Send Invite via App User ID for Auto-Approval
+[![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/170152797-c8a784b9-22f7-45ea-8140-1c1c54df30d4.mov)
+
+> **Note:🚨** A tip about sending invites using the `user_id` field. If your app is already installed on both the inviting <b>and</b> the target organization, you can invite the app via User ID directly. This will
+result in the automatic accepting of the invite.
+Simply grab the `user_id` field. This is recommended for orgs that you have a close working relationship with. Read more [here](https://api.slack.com/apis/connect#invite). 🚨 
+
+First, click on the Send Invites button.
+
+Then, in the modal which pops up, choose the channel which you've just added the Slack Connect Admin App to.
+
+In the `user_id` section, choose the `user_id` which coressponds to the bot
+which has been installed on the target Organization (i.e. Organization which
+will receive the invite). 
+
+> **Note:🚨** To find the `user_id` of the app, simply click on the app's 
+home (make sure it is the app which is installed on the target Organization), and then click on the App's name. From there, you should see the `Member ID` which starts with a `U`. That is the `user_id` which you can use in the invite. 🚨 
+
+Leave the rest of the sections blank and click on Invite. Lastly, click on View Invitations and you should see your newly created inviation.
+
+[![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/170152824-80389b26-54da-48c4-9547-bb7215369bc1.mov)
+
+
+Now - if you've also created special rules in the Admin console of your 
+Grid Organization, you can have it so that any accepted invite will be 
+auto-approved from a specific organization. This is the way to make Slack
+Connect channels seamlessly be approved between trusted Organizations.
 
 ## Step 5. Accept the Slack Connect Invite
 Watch the video below **(sound on)** to understand how to accept the invite.

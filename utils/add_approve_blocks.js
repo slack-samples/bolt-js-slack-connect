@@ -20,7 +20,7 @@ const addApproveBlocks = async (
         + `*Inviting Team*: ${currentInvite.invite.inviting_team.name} \n`
         + `*Inviting User*: ${currentInvite.invite.inviting_user.name} \n`
         + `*Channel Name*: ${currentInvite.channel.name} \n`
-        + '*Status*: Not yet accepted',
+        + '*Status*: Not yet approved',
     },
   };
   inviteBlocks.push(sectionWithInviteInfo);
