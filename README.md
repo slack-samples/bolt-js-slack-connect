@@ -27,7 +27,7 @@ approval of a channel in one place (not shown)
 9. [Disconnect the Channel](#step-9-disconnect-the-channel) 
 10. [Conclusion](#conclusion) 
 
-## Step 1. App Configuration
+## App Configuration
 
 Before getting started, make sure you have a development workspace where you have permissions to install apps. If you don’t have one setup, go ahead and [create one](https://slack.com/create).
 ## Installation
@@ -89,6 +89,15 @@ and the collection is named `users`.
 Every incoming request is routed to a "listener". Inside this directory, we group each listener based on the Slack Platform feature used, so `/listeners/shortcuts` handles incoming [Shortcuts](https://api.slack.com/interactivity/shortcuts) requests, `/listeners/views` handles [View submissions](https://api.slack.com/reference/interaction-payloads/views#view_submission) and so on.
 
 Great job! You're now ready to install the app using Slack's OAuth process. 
+
+## Step 1. Configure Interactivity, Events, and Redirect URLs
+
+Follow the steps below based on if you plan to use Ngrok or Glitch as a way to host your app. Either will work.
+
+If you are using [Ngrok](www.ngrok.com), make sure you have started up ngrok, and have updated your app with the ngrok forwarding address in the following places:
+1. Update your event subscriptions request URL. It should look like the following: `https://3cb89939.ngrok.io/slack/events`. Save this.
+2. Update your interactivity request URL. It should look like the following: `https://3cb89939.ngrok.io/slack/events`. Save this.
+3. Go to OAuth & Permissions -> Redirect URLs. Add a new redirect URL. It should look like the following: `https://3cb89939.ngrok.io/slack/oauth_redirect`. Save the URL.
 
 ## App Distribution / OAuth
 
