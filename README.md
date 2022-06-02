@@ -1,29 +1,53 @@
-# Slack Connect Admin App
+# 🤖 Bolt JS Slack Connect Admin 🤖
+<p align="center">
 
-This project aims to speed up the time to understand & implement an app using Slack Connect APIs.
+[![Add App to Channel](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)](https://user-images.githubusercontent.com/10428517/155399298-a7784e0a-3b13-42b3-a3e4-96217efbd0d9.gif)
+</p>
 
-It is meant to be a blueprint app which others can take and build their own automations into.
+> **Note:🚨** Because this app can approve Slack Connect invites, apps with this feature can only be installed by a worksapce owner or admin. Read more about the `conversations.connect:manage` scope [here](https://slack.com/create). 🚨 
 
-# Steps
-0. [Installation](#step-0-Installation)
-1. [Configure Interactivity, Events, and Redirect URLs](#step-1-configure-interactivity-events-and-redirect-URLs)
+This project aims to speed up the time to understand & implement automations with [Slack Connect APIs](https://api.slack.com/apis/connect). This project aims to be the baseline
+on which a few different automations can be built:
+
+* Disconnect channels automatically (based on a date picked at channel creation time)
+* Customize org settings for auto approval to speed up creating multiple 
+channels between the same two organizations 
+* Upload remote files into the app, keeping all information related to the 
+approval of a channel in one place (not shown)
+
+# Steps 
+1. [App Configuration](#step-1-app-configuration)
 2. [Install the App](#step-2-install-the-app)
 3. [Add the App to a Channel](#step-3-add-the-app-to-a-channel)
 4. [Send a Slack Connect Invite](#step-4-send-a-slack-connect-invite)
-5. [Accept the Slack Connect Invite](#step-5-accept-the-slack-connect-invite)
-6. [Approve the Slack Connect Invite](#step-6-approve-the-slack-connect-invite)
-7. [Disconnect the Channel](#step-7-disconnect-the-channel) 
-8. [Conclusion](#conclusion) 
+5. [(Optional) Send a Slack Connect Invite using User ID](#step-5-optional-send-a-slack-connect-invite-using-user-id)
+6. [(Optional) Create Custom Slack Connect Settings to Never Require Approval](#step-6-optional-create-custom-slack-connect-settings-to-never-require-approval)
+7. [Accept the Slack Connect Invite](#step-7-accept-the-slack-connect-invite)
+8. [Approve the Slack Connect Invite](#step-8-approve-the-slack-connect-invite)
+9. [Disconnect the Channel](#step-9-disconnect-the-channel) 
+10. [Conclusion](#conclusion) 
 
-## Step 0. Installation
+## App Configuration
+
+Before getting started, make sure you have a development workspace where you have permissions to install apps. If you don’t have one setup, go ahead and [create one](https://slack.com/create).
+## Installation
 
 #### Create a Slack App
 
 1. Open [https://api.slack.com/apps/new](https://api.slack.com/apps/new) and choose "From an app manifest"
 2. Choose the workspace you want to install the application to
-3. Copy the contents of [manifest.json](./manifest.json) into the text box that says `*Paste your manifest code here*` (within the JSON tab) and click _Next_
+3. Copy the contents of [manifest.json](./manifest.json) into the text box that says `*Paste your manifest code here*` (within the JSON tab) and click _Next_. Make sure to change the URLs on the `manifest.json` in three
+specific places, as shown in the screenshot below.
+
+![changeManifest](https://user-images.githubusercontent.com/10428517/155407272-44a2eaf9-e735-453f-a9c7-18c21004a037.png)
+
 4. Review the configuration and click _Create_
 5. Click _Install to Workspace_ and _Allow_ on the screen that follows. You'll then be redirected to the App Configuration dashboard.
+6. Click on `Manage Distribution` and then make sure all boxes have 
+green check marks. Select `Remove Hard Coded Information`, check the box
+and then `Activate Public Distribution`.
+
+![activeDistribution](https://user-images.githubusercontent.com/10428517/155411289-45f63a4f-72dc-40b1-a45e-9fae8d2df673.png)
 
 #### Environment Variables
 
@@ -50,6 +74,22 @@ and the collection is named `users`.
 
 `npm start`
 
+## Project Structure
+
+### `manifest.json`
+
+`manifest.json` is a configuration for Slack apps. With a manifest, you can create an app with a pre-defined configuration, or adjust the configuration of an existing app.
+
+### `app.js`
+
+`app.js` is the entry point for the application and is the file you'll run to start the server. This project aims to keep this file as thin as possible, primarily using it as a way to route inbound requests.
+
+### `/listeners`
+
+Every incoming request is routed to a "listener". Inside this directory, we group each listener based on the Slack Platform feature used, so `/listeners/shortcuts` handles incoming [Shortcuts](https://api.slack.com/interactivity/shortcuts) requests, `/listeners/views` handles [View submissions](https://api.slack.com/reference/interaction-payloads/views#view_submission) and so on.
+
+Great job! You're now ready to install the app using Slack's OAuth process. 
+
 ## Step 1. Configure Interactivity, Events, and Redirect URLs
 
 Follow the steps below based on if you plan to use Ngrok or Glitch as a way to host your app. Either will work.
@@ -59,17 +99,15 @@ If you are using [Ngrok](www.ngrok.com), make sure you have started up ngrok, an
 2. Update your interactivity request URL. It should look like the following: `https://3cb89939.ngrok.io/slack/events`. Save this.
 3. Go to OAuth & Permissions -> Redirect URLs. Add a new redirect URL. It should look like the following: `https://3cb89939.ngrok.io/slack/oauth_redirect`. Save the URL.
 
-If you are using [Glitch](www.glitch.com), follow these instructions. To find your hosted URL in Glitch, open your project in the Glitch web IDE,
-and then click on `Share`. From there you find the `Live site` link. Mine looks like the following: `https://bolt-template-slack-connect.glitch.me`
+## App Distribution / OAuth
 
-Once you've found the URL to your live site, update your app's configuration in the following places:
-1. Update your event subscriptions request URL. It should look like the following: `https://bolt-template-slack-connect.glitch.me/slack/events`. Save this.
-2. Update your interactivity request URL. It should look like the following: `https://bolt-template-slack-connect.glitch.me/slack/events/slack/events`. Save this.
-3. Go to OAuth & Permissions -> Redirect URLs. Add a new redirect URL. It should look like the following: `https://bolt-template-slack-connect.glitch.me/slack/oauth_redirect`. Save the URL.
+This app uses app distribution / OAuth by default. When using OAuth, Slack requires a public URL where it can send requests. In this template app, we've used [`ngrok`](https://ngrok.com/download). Checkout [this guide](https://ngrok.com/docs#getting-started-expose) for setting it up.
 
-Great job! You're now ready to install the app using Slack's OAuth process. 
+Start `ngrok` to access the app on an external network and create a redirect URL for OAuth. 
 
 ## Step 2. Install the App
+
+> **Note:🚨** Because this app can approve Slack Connect invites, apps with this feature can only be installed by a worksapce owner or admin. Read more about the `conversations.connect:manage` scope [here](https://slack.com/create). 🚨 
 
 Watch the video below **(sound on)** to understand how to install the app. Note that the video is showing the install path from a Ngrok URL. 
 The base URL will always we different, based on if you are using Ngrok or Glitch, and depending on what your app is named on Glitch / what forwarding address is used in Ngrok.
@@ -94,7 +132,7 @@ create a new channel, then we add the app to that channel.
 
 [![Add App to Channel](https://user-images.githubusercontent.com/10428517/155204764-789193f2-8cce-46aa-8268-508cf38195b9.png)](https://user-images.githubusercontent.com/10428517/155204315-2fa1b888-d479-494d-ae80-ebe59da02868.mov)
 
-## Step 4. Send a Slack Connect Invite using the App
+## Step 4. Send a Slack Connect Invite
 
 Watch the video below **(sound on)** to understand how to send an invite to a user outside of your current organization.
 
@@ -109,9 +147,40 @@ In the email section, choose the email which coressponds to the workspace which 
 Leave the rest of the sections blank and click on `Invite`. Lastly, click on `View Invitations` and you should see your 
 newly created inviation.
 
+## Step 5. (Optional) Send a Slack Connect Invite using User ID
+[![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/170152797-c8a784b9-22f7-45ea-8140-1c1c54df30d4.mov)
 
-## Step 5. Accept the Slack Connect Invite
+> **Note:🚨** A tip about sending invites using the `user_id` field. If your app is already installed on both the inviting <b>and</b> the target organization, you can invite the app via User ID directly. This will
+result in the automatic accepting of the invite.
+Simply grab the `user_id` field. This is recommended for orgs that you have a close working relationship with. Read more [here](https://api.slack.com/apis/connect#invite). 🚨 
+
+First, click on the Send Invites button.
+
+Then, in the modal which pops up, choose the channel which you've just added the Slack Connect Admin App to.
+
+In the `user_id` section, choose the `user_id` which coressponds to the bot
+which has been installed on the target Organization (i.e. Organization which
+will receive the invite). 
+
+> **Note:🚨** To find the `user_id` of the app, simply click on the app's 
+home (make sure it is the app which is installed on the target Organization), and then click on the App's name. From there, you should see the `Member ID` which starts with a `U`. That is the `user_id` which you can use in the invite. 🚨 
+
+Leave the rest of the sections blank and click on Invite. Lastly, click on View Invitations and you should see your newly created inviation.
+
+## Step 6. (Optional) Create Custom Slack Connect Settings to Never Require Approval
+
+[![sendInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/170152824-80389b26-54da-48c4-9547-bb7215369bc1.mov)
+
+
+Now - if you've also created special rules in the Admin console of your 
+Grid Organization, you can have it so that any accepted invite will be 
+auto-approved from a specific organization. This is the way to make Slack
+Connect channels seamlessly be approved between trusted Organizations.
+
+## Step 7. Accept the Slack Connect Invite
 Watch the video below **(sound on)** to understand how to accept the invite.
+
+> **Note:🚨** The invite must be accepted from a user from a different workspace / organization than the workspace / org from which the invite was sent. 🚨 
 
 [![acceptInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/155225771-184cca6d-f715-45ca-9ba6-452c3a86216b.mov)
 
@@ -121,14 +190,14 @@ Click through the following two pages. You can leave the defaults as is (Public 
 click on `Join Channel`. Now, if you click on `View Invitations again` you should see that the buttons have changed. Instead of seeing `Accept` and `Ignore`you will
 now see `Approve` and `Deny`. 
 
-## Step 6. Approve the Slack Connect Invite
+## Step 8. Approve the Slack Connect Invite
 Watch the video below **(sound on)** to understand how to approve the invite.
 
 [![approveInvite](https://user-images.githubusercontent.com/10428517/155223135-f9f6a0fd-4e93-4494-bb73-feddbbb09170.png)](https://user-images.githubusercontent.com/10428517/155228571-f4a10314-f5bb-4af2-803e-3bcfd41145a9.mov)
 
 Click on the green `Approve` button next to the invite. After a few seconds, you should see that invite dissapear and then the `demo_sc_app` channel will be added under the `Connections` tab, which means it's been shared outside of your own organization! 
 
-## Step 7. Disconnect the Channel
+## Step 9. Disconnect the Channel
 
 Watch the video below **(sound on)** to understand how to disconnect your shared channel. This will involve installing the app again, but this 
 time at the org level. 🚨You need to be **logged in as an org owner / admin** to be able to use this feature.🚨
@@ -152,7 +221,8 @@ click on `Disconnect`.
 Within a few seconds, you should see that channel move from the `Connections` section of the sidebar, to the `Channels` section. This means 
 that this channel has now been disconnected from the organization it was previously connected to.
 
-## Conclusion
+## 🎊 Conclusion 🎊 
+
 Great job! You've learned how the Slack Connect APIs work! You've learned how to send an invite, accept and invite, approve an invite, and 
 also disconnect a shared channel!
 
@@ -160,5 +230,3 @@ Another thing you may want to try is to edit settings for your organization's Sl
 channels between a certain organization you may do that. This will speed up the creation of Slack Connect channels. 
 
 Thanks so much for learning with me. Please file any issues in this GitHub repo! 
-
-
