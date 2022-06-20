@@ -7,13 +7,11 @@
 > **Note:🚨** Because this app can approve Slack Connect invites, apps with this feature can only be installed by a workspace owner or admin. Read more about the `conversations.connect:manage` scope [here](https://slack.com/create). 🚨 
 
 This project aims to speed up the time to understand & implement automations with [Slack Connect APIs](https://api.slack.com/apis/connect). This project aims to be the baseline
-on which a few different automations can be built:
+on which a few different automations can be built, such as:
 
 * Disconnect channels automatically (based on a date picked at channel creation time)
 * Customize org settings for auto approval to speed up creating multiple 
 channels between the same two organizations 
-* Upload remote files into the app, keeping all information related to the 
-approval of a channel in one place (not shown)
 
 # Steps 
 1. [App Configuration](#step-1-app-configuration)
