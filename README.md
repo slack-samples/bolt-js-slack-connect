@@ -55,11 +55,27 @@ Before you can run the app, you'll need to store some environment variables.
 2. Click _Basic Information_ from the left hand menu. There, in the `App Credentials` you should see your `SLACK_CLIENT_ID`, `SLACK_CLIENT_SECRET`, and `SLACK_SIGNING_SECRET`. Click on `Show` and copy and paste those values into your `.env` file.
 3. This app uses (the free version of) MongoDB. You'll need to provide your MongoDB username, password, and database name in the `.env` file: `DB_USERNAME`, `DB_PASSWORD`, and `DB_NAME`. You can 
 feel free to leave the DB_NAME as `slack_connect_test`.
+4. Lastly, you'll need to set the `CLUSTER` env variable. To do this, you'll need your connection info to be able to connect to your MongoDB cluster. Please follow the below screenshots to see your cluster information to be able to set the `CLUSTER` env variable.
+
+First, click on `Database` from the left side bar, under `Deployments`.
+![dbDeployments](https://user-images.githubusercontent.com/10428517/175144163-a503528a-290a-4030-8359-c0e401865475.png)
+
+Next, click on `Connect` next to `Cluster0`. Note that your cluster may be named differently. You should see the following after you click on `Connect`.
+![connect](https://user-images.githubusercontent.com/10428517/175144181-37a9e8a5-eff3-4844-8ca3-b3d0fd9068e9.png)
+
+Lastly, click on `connect your application`.
+![connect](https://user-images.githubusercontent.com/10428517/175156902-6bd48d2f-a44e-4dc0-b76b-8f70c886bff5.png)
+
+There you should see your cluster info. Mine is `cluster0.yvswg`. That is exactly what you will need to have in your 
+`.env` file. See the `env.sample` [here](https://github.com/slack-samples/bolt-js-slack-connect/blob/main/env.sample#L9).
 
 Below, you can see a screenshot of my database configuration. The `DB_NAME` is `slack_connect_test` 
 and the collection is named `users`. 
 
 ![Screen Shot 2022-02-22 at 11 05 10 AM](https://user-images.githubusercontent.com/10428517/155201340-b6b77e0d-e49b-41c9-a26f-f24c1eb419a2.png)
+
+#### Source your Env Variables
+That's it! You now have all the info to set your environmental variables to connect to your MongoDB cluster. 
 
 > Don't forget to save your `.env` and then run 
 ```source .env``` to set your env variables. 
