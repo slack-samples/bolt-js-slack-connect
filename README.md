@@ -66,8 +66,8 @@ Next, click on `Connect` next to `Cluster0`. Note that your cluster may be named
 Lastly, click on `connect your application`.
 ![connect](https://user-images.githubusercontent.com/10428517/175156902-6bd48d2f-a44e-4dc0-b76b-8f70c886bff5.png)
 
-There you should see your cluster info. Mine is `cluster0.yvswg`. That is exactly what you will need to have in your 
-`.env` file. See the `env.sample` [here](https://github.com/slack-samples/bolt-js-slack-connect/blob/main/env.sample#L9).
+There you should see your cluster info. Mine is `cluster0.yvswg`. Yours should look different. Copy your connection string as and paste it in your 
+`.env` file. See my example of my cluster info in `env.sample` [here](https://github.com/slack-samples/bolt-js-slack-connect/blob/main/env.sample#L9).
 
 Below, you can see a screenshot of my database configuration. The `DB_NAME` is `slack_connect_test` 
 and the collection is named `users`. 
