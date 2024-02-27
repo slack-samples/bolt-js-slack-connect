@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/slackapi/bolt-js-template.git"
+    "url": "https://github.com/slack-samples/bolt-js-slack-connect.git"
   },
   "bugs": {
-    "url": "https://github.com/slackapi/bolt-js-template/issues"
+    "url": "https://github.com/slack-samples/bolt-js-slack-connect/issues"
   },
   "dependencies": {
     "@slack/bolt": "^3.8.1",
